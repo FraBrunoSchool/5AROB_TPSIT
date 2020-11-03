@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="percorsi" uuid="ee0eafe7-3d22-4245-82eb-fc5795303f10">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\Desktop\GitHub\5AROB_TPSIT\ALPHABOT\ServerTCP_DB\percorsi.db</jdbc-url>
+    </data-source>
+  </component>
+</project>
