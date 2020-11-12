@@ -28,25 +28,14 @@ class ClientThread(threading.Thread):
             DB_cursor = DB_connection.cursor()
 
             print(f'Query: SELECT id FROM luoghi WHERE nome="{localita[0]}"')
-            for row in DB_cursor.execute(f'SELECT id FROM luoghi WHERE nome="{localita[0]}"'):
-                id_localita_end = row
-            print(f"Risultato query: {id_localita_end[0]}")
-
-            print(f'Query: SELECT id FROM luoghi WHERE nome="{localita[1]}"')
-            for row in DB_cursor.execute(f'SELECT id FROM luoghi WHERE nome="{localita[1]}"'):
-                id_localita_start = row
-            print(f"Risultato query: {id_localita_start[0]}")
-
-            print(
-                f'Query: SELECT id_percorso FROM inzio_fine WHERE id_end="{id_localita_end[0]}" AND id_start="{id_localita_start[0]}"')
-            for row in DB_cursor.execute(f'SELECT id_percorso FROM inzio_fine WHERE id_end = "{id_localita_end[0]}" AND id_start = "{id_localita_start[0]}"'):
-                id_percorso = row
-            print(f"Risultato query: {id_percorso[0]}")
-
-            print(f"Query: SELECT percorso FROM percorsi WHERE id = {id_percorso[0]}")
-            for row in DB_cursor.execute(f'SELECT percorso FROM percorsi WHERE id = "{id_percorso[0]}"'):
+            for row in DB_cursor.execute(f'SELECT percorsi.percorso FROM percorsi WHERE percorsi.id = '
+                                         f'(SELECT inizio_fine.id_percorso  FROM inizio_fine WHERE inizio_fine.id_end = '
+                                         f'(SELECT luoghi.id FROM luoghi WHERE luoghi.nome = {localita[1]}) '
+                                         f'AND '
+                                         f'inizio_fine.id_start = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = {localita[0]} ));'):
                 percorso = row
             print(f"Risultato query: {percorso[0]}")
+
             # elaborazione richiesta client
 
             DB_connection.close()
@@ -54,3 +43,25 @@ class ClientThread(threading.Thread):
             self.Server_connection.send(percorso[0].encode())  # send data to the client
 
         self.Server_connection.close()
+
+
+        """
+        SELECT percorsi.percorso
+        FROM percorsi
+        WHERE percorsi.id = (
+            SELECT inizio_fine.id_percorso 
+            FROM inizio_fine
+            WHERE 
+                    inizio_fine.id_end = (
+                        SELECT luoghi.id
+                        FROM luoghi
+                        WHERE luoghi.nome = "info1"
+                    ) 
+                AND 
+                    inizio_fine.id_start = (
+                        SELECT luoghi.id
+                        FROM luoghi
+                        WHERE luoghi.nome = "aula3.0"
+                    )
+        );
+        """
