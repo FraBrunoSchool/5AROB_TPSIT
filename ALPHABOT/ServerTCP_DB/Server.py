@@ -1,10 +1,11 @@
+import logging
 import socket as sck
 from ClientThread import ClientThread
 
 
 def server():
     # get the hostname
-    host = "192.168.178.31"
+    host = "192.168.178.42"
     port = 6000  # initiate port
 
     s = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # get instance
@@ -13,11 +14,11 @@ def server():
 
     client_thread = []
     client_address = []
-
-    print("Server in ascolto")
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+    logging.info("Server in ascolto")
     while True:
         conn, address = s.accept()  # accept new connection
-        print(f"New connection from: {address}")
+        logging.info(f"New connection from: {address}")
         cl = ClientThread(conn, address, "percorsi.db")
         cl.start()
         client_thread.append(cl)

@@ -3,7 +3,7 @@ import socket as sck
 
 def client():
     # get the server name
-    host = "192.168.178.31"
+    host = "192.168.178.42"
     port = 6000  # server port number
     print("creo istanza")
     c = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # instantiate

@@ -1,0 +1,13 @@
+2020-11-12 18:26:28 - Inizio ricezione/elaborazione dati
+2020-11-12 18:26:34 - from connected user ('192.168.178.42', 10263):  smartlab,info3")
+2020-11-12 18:26:34 - from connected user ('192.168.178.42', 10263):  valid data")
+2020-11-12 18:26:34 - SELECT percorsi.percorso FROM percorsi WHERE percorsi.id = (SELECT inizio_fine.id_percorso FROM inizio_fine WHERE inizio_fine.id_end = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "smartlab") AND inizio_fine.id_start = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "info3"));
+2020-11-12 18:26:34 - Risultato query: B50R90F600L90F400
+2020-11-12 18:26:34 - For the connected user ('192.168.178.42', 10263):  0.0,B50R90F600L90F4002020-11-12 18:26:40 - from connected user ('192.168.178.42', 10263):  3333,ppp")
+2020-11-12 18:26:40 - from connected user ('192.168.178.42', 10263):  1.2,start or end not found re-enter end,start")
+2020-11-12 18:26:47 - from connected user ('192.168.178.42', 10263):  smartlab,info3")
+2020-11-12 18:26:47 - from connected user ('192.168.178.42', 10263):  valid data")
+2020-11-12 18:26:47 - SELECT percorsi.percorso FROM percorsi WHERE percorsi.id = (SELECT inizio_fine.id_percorso FROM inizio_fine WHERE inizio_fine.id_end = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "smartlab") AND inizio_fine.id_start = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "info3"));
+2020-11-12 18:26:47 - Risultato query: B50R90F600L90F400
+2020-11-12 18:26:47 - For the connected user ('192.168.178.42', 10263):  0.0,B50R90F600L90F4002020-11-12 18:26:56 - from connected user ('192.168.178.42', 10263):  exit")
+2020-11-12 18:26:56 - Close connection user ('192.168.178.42', 10263)")
