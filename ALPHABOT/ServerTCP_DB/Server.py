@@ -1,15 +1,12 @@
 import logging
 import socket as sck
-from ClientThread import ClientThread
+from Classi.ClientThread import ClientThread
+import Classi.Config as conf
 
 
 def server():
-    # get the hostname
-    host = "192.168.178.42"
-    port = 6000  # initiate port
-
     s = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # get instance
-    s.bind((host, port))  # bind host address and port
+    s.bind((conf.SERVER_IP, conf.SERVER_PORT))  # bind host address and port
     s.listen()  # number of client can listen simultaneously
 
     client_thread = []
@@ -19,7 +16,7 @@ def server():
     while True:
         conn, address = s.accept()  # accept new connection
         logging.info(f"New connection from: {address}")
-        cl = ClientThread(conn, address, "percorsi.db")
+        cl = ClientThread(conn, address, f"{conf.PATH_DATA}/percorsi.db")
         cl.start()
         client_thread.append(cl)
         client_address.append(address)

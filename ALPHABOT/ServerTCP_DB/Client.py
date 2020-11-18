@@ -1,23 +1,24 @@
 import socket as sck
+import Classi.Config as conf
 
 
 def client():
-    # get the server name
-    host = "192.168.178.42"
-    port = 6000  # server port number
     print("creo istanza")
     c = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # instantiate
 
-    c.connect((host, port))
+    c.connect((conf.SERVER_IP, conf.SERVER_PORT))
     print("connect")
 
     print("Enter 'exit' to end the connection")
     msg = input("->")  # take input
 
     while True:
-        c.sendall(msg.encode())  # send message
+        try:
+            c.sendall(msg.encode())  # send message
+        except:
+            print(f"failed")
 
-        data = c.recv(1024).decode()  # receive response
+        data = c.recv(conf.BUFFER_SIZE).decode()  # receive response
         print(f"Received from server: {data}")  # show response
 
         msg = input("->")  # again take input
