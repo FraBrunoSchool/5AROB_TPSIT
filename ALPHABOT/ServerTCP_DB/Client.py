@@ -2,7 +2,17 @@ import socket as sck
 import Classi.Config as conf
 
 
+# 0.0,B50R90F600L90F400
+# B 50  R 90    F 600   L 90    F 400
+# [(b, 50), ]
+
+
 def client():
+    listaComandi = ['F', 'B', 'R', 'L']
+    listaPotenze = [int(n) for n in range(0, 10)]
+    print(listaComandi)
+    print(listaPotenze)
+
     print("creo istanza")
     c = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # instantiate
 
@@ -20,7 +30,21 @@ def client():
 
         data = c.recv(conf.BUFFER_SIZE).decode()  # receive response
         print(f"Received from server: {data}")  # show response
-
+        data = (data.split(","))[1]
+        lista_istruzioni = []
+        for d in data:
+            comando = []
+            if d in listaComandi:
+                comando.append(d)
+                data = data.removeprefix(d)
+                potenza = ""
+                for num in data:
+                    if int(num) in listaPotenze:
+                        potenza += num
+                        data = data.removeprefix(num)
+                comando.append(potenza)
+            lista_istruzioni.append(tuple(comando))
+        print(lista_istruzioni)
         msg = input("->")  # again take input
 
         if msg == "exit":

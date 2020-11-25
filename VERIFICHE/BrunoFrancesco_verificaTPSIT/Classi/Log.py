@@ -5,7 +5,7 @@ class Log:
     def __init__(self, nomeFile):
         self.loggerFile = logging.getLogger('LogFile')
         self.loggerFile.setLevel(logging.DEBUG)
-        fhFile = logging.FileHandler(nomeFile, 'w')
+        fhFile = logging.FileHandler(nomeFile)
         fhFile.setLevel(logging.DEBUG)
         self.loggerFile.addHandler(fhFile)
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -32,3 +32,5 @@ class Log:
     def i(self, msg):
         self.loggerFile.info(msg)
         self.loggerConsole.info(msg)
+
+
