@@ -1,18 +1,15 @@
+import re
 import socket as sck
 import Classi.Config as conf
+from Classi.AlphaBot import AlphaBot as AlphaBot
 
 
 # 0.0,B50R90F600L90F400
 # B 50  R 90    F 600   L 90    F 400
-# [(b, 50), ]
+# [(b, 50), ]s
 
 
 def client():
-    listaComandi = ['F', 'B', 'R', 'L']
-    listaPotenze = [int(n) for n in range(0, 10)]
-    print(listaComandi)
-    print(listaPotenze)
-
     print("creo istanza")
     c = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # instantiate
 
@@ -21,7 +18,7 @@ def client():
 
     print("Enter 'exit' to end the connection")
     msg = input("->")  # take input
-
+    alphabot = AlphaBot()
     while True:
         try:
             c.sendall(msg.encode())  # send message
@@ -31,20 +28,20 @@ def client():
         data = c.recv(conf.BUFFER_SIZE).decode()  # receive response
         print(f"Received from server: {data}")  # show response
         data = (data.split(","))[1]
-        lista_istruzioni = []
-        for d in data:
-            comando = []
-            if d in listaComandi:
-                comando.append(d)
-                data = data.removeprefix(d)
-                potenza = ""
-                for num in data:
-                    if int(num) in listaPotenze:
-                        potenza += num
-                        data = data.removeprefix(num)
-                comando.append(potenza)
-            lista_istruzioni.append(tuple(comando))
-        print(lista_istruzioni)
+        lista_potenze = re.split('B|R|F|L', data)
+        lista_potenze.pop(0)
+        regex = ''
+        for index, el in enumerate(lista_potenze):
+            if index == len(lista_potenze) - 1:
+                regex += el
+            else:
+                regex += el + '|'
+        lista_direzioni = re.split(regex, data)
+        lista_direzioni.pop(-1)
+        comandi = []
+        for index, el in enumerate(lista_potenze): comandi.append((lista_direzioni[index], int(el)))
+        print(comandi)
+        for el in comandi: istruction(alphabot, el[0], el[1])
         msg = input("->")  # again take input
 
         if msg == "exit":
@@ -54,6 +51,15 @@ def client():
 
     c.close()  # close the connection
 
+
+def istruction(alphabot, command, number):
+    switcher = {
+        "F": alphabot.forward,
+        "B": alphabot.backward,
+        "R": alphabot.right,
+        "L": alphabot.left
+    }
+    switcher[command](number)
 
 if __name__ == '__main__':
     client()
