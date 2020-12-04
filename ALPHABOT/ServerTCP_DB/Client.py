@@ -27,6 +27,7 @@ def client():
 
         data = c.recv(conf.BUFFER_SIZE).decode()  # receive response
         print(f"Received from server: {data}")  # show response
+
         data = (data.split(","))[1]
         lista_potenze = re.split('B|R|F|L', data)
         lista_potenze.pop(0)
@@ -42,6 +43,7 @@ def client():
         for index, el in enumerate(lista_potenze): comandi.append((lista_direzioni[index], int(el)))
         print(comandi)
         for el in comandi: istruction(alphabot, el[0], el[1])
+
         msg = input("->")  # again take input
 
         if msg == "exit":
