@@ -2,6 +2,7 @@ import re
 import socket as sck
 import Classi.Config as conf
 from Classi.AlphaBot import AlphaBot as AlphaBot
+from Classi.Log import Log
 
 
 # 0.0,B50R90F600L90F400
@@ -10,23 +11,27 @@ from Classi.AlphaBot import AlphaBot as AlphaBot
 
 
 def client():
-    print("creo istanza")
     c = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # instantiate
-
     c.connect((conf.SERVER_IP, conf.SERVER_PORT))
-    print("connect")
+    address = c.getsockname()
+    ip = ""
+    for i in address[0].split("."): ip += str(i)
+    ip += "_" + str(address[1])
+    log = Log(f"{conf.PATH_LOG}log_Client_{ip}.txt")
+    log.i("Creazione Server")
+    log.i("connect")
 
-    print("Enter 'exit' to end the connection")
+    log.i("Enter 'exit' to end the connection")
     msg = input("->")  # take input
     alphabot = AlphaBot()
     while True:
         try:
             c.sendall(msg.encode())  # send message
         except:
-            print(f"failed")
+            log.e(f"failed")
 
         data = c.recv(conf.BUFFER_SIZE).decode()  # receive response
-        print(f"Received from server: {data}")  # show response
+        log.i(f"Received from server: {data}")  # show response
 
         data = (data.split(","))[1]
         lista_potenze = re.split('B|R|F|L', data)
@@ -48,7 +53,7 @@ def client():
 
         if msg == "exit":
             c.sendall(msg.encode())  # send message
-            print("Close the connection")
+            log.w("Close the connection")
             break
 
     c.close()  # close the connection
@@ -62,6 +67,7 @@ def istruction(alphabot, command, number):
         "L": alphabot.left
     }
     switcher[command](number)
+
 
 if __name__ == '__main__':
     client()

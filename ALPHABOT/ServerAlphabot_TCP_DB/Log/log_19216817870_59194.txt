@@ -1,0 +1,24 @@
+2020-12-27 10:49:01,246 - INFO - thread started, start data transmission with server
+2020-12-27 10:53:25,515 - INFO - from connected user ('192.168.178.70', 59194):  
+2020-12-27 10:53:25,515 - INFO - Close connection user ('192.168.178.70', 59194)
+2020-12-27 10:55:38,940 - INFO - thread started, start data transmission with server
+2020-12-27 10:55:51,405 - INFO - from connected user ('192.168.178.70', 59204):  
+2020-12-27 10:55:51,405 - INFO - Close connection user ('192.168.178.70', 59204)
+2020-12-27 10:57:17,483 - INFO - thread started, start data transmission with server
+2020-12-27 10:57:26,905 - INFO - from connected user ('192.168.178.70', 59206):  smartllab,info3
+2020-12-27 10:57:26,905 - ERROR - 1.2, from connected user ('192.168.178.70', 59206) start or end not found re-enter end,start
+2020-12-27 10:57:44,947 - INFO - from connected user ('192.168.178.70', 59206):  smartlab,info2
+2020-12-27 10:57:44,947 - INFO - from connected user ('192.168.178.70', 59206):  valid data
+2020-12-27 10:57:44,947 - INFO - SELECT percorsi.percorso FROM percorsi WHERE percorsi.id = (SELECT inizio_fine.id_percorso FROM inizio_fine WHERE inizio_fine.id_end = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "smartlab") AND inizio_fine.id_start = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "info2"));
+2020-12-27 10:57:44,947 - ERROR - 1.1, from connected user ('192.168.178.70', 59206) path not found re-enter end,start
+2020-12-27 10:57:53,012 - INFO - from connected user ('192.168.178.70', 59206):  info3,smartlab
+2020-12-27 10:57:53,012 - INFO - from connected user ('192.168.178.70', 59206):  valid data
+2020-12-27 10:57:53,012 - INFO - SELECT percorsi.percorso FROM percorsi WHERE percorsi.id = (SELECT inizio_fine.id_percorso FROM inizio_fine WHERE inizio_fine.id_end = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "info3") AND inizio_fine.id_start = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "smartlab"));
+2020-12-27 10:57:53,012 - ERROR - 1.1, from connected user ('192.168.178.70', 59206) path not found re-enter end,start
+2020-12-27 10:58:54,612 - INFO - from connected user ('192.168.178.70', 59206):  smartlab,info3
+2020-12-27 10:58:54,612 - INFO - from connected user ('192.168.178.70', 59206):  valid data
+2020-12-27 10:58:54,612 - INFO - SELECT percorsi.percorso FROM percorsi WHERE percorsi.id = (SELECT inizio_fine.id_percorso FROM inizio_fine WHERE inizio_fine.id_end = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "smartlab") AND inizio_fine.id_start = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "info3"));
+2020-12-27 10:58:54,612 - INFO - Risultato query: B50R90F60L90F40
+2020-12-27 10:58:54,612 - INFO - For the connected user ('192.168.178.70', 59206):  0.0,B50R90F60L90F40
+2020-12-27 11:22:06,978 - INFO - from connected user ('192.168.178.70', 59206):  000000000000000000
+2020-12-27 11:22:06,994 - ERROR - 1.2, from connected user ('192.168.178.70', 59206) start or end not found re-enter end,start
