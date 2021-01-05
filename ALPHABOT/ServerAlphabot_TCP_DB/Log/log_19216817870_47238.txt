@@ -1,0 +1,3 @@
+2021-01-04 11:42:12,585 - INFO - thread started, start data transmission with server
+2021-01-04 11:42:30,493 - INFO - from connected user ('192.168.178.70', 47238):  
+2021-01-04 11:42:30,495 - INFO - Close connection user ('192.168.178.70', 47238)

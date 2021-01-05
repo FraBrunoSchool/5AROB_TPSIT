@@ -1,0 +1,11 @@
+2021-01-04 11:40:51,670 - INFO - thread started, start data transmission with server
+2021-01-04 11:41:10,618 - INFO - from connected user ('192.168.178.70', 47236):  smartlab,info3
+2021-01-04 11:41:10,619 - INFO - from connected user ('192.168.178.70', 47236):  valid data
+2021-01-04 11:41:10,619 - INFO - SELECT percorsi.percorso FROM percorsi WHERE percorsi.id = (SELECT inizio_fine.id_percorso FROM inizio_fine WHERE inizio_fine.id_end = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "smartlab") AND inizio_fine.id_start = (SELECT luoghi.id FROM luoghi WHERE luoghi.nome = "info3"));
+2021-01-04 11:41:10,620 - INFO - Risultato query: B50R90F60L90F40
+2021-01-04 11:41:10,620 - INFO - For the connected user ('192.168.178.70', 47236):  0.0,B50R90F60L90F40
+2021-01-04 11:41:29,152 - INFO - from connected user ('192.168.178.70', 47236):  
+2021-01-04 11:41:29,154 - INFO - Close connection user ('192.168.178.70', 47236)
+2021-01-04 11:42:12,585 - INFO - thread started, start data transmission with server
+2021-01-04 11:42:30,493 - INFO - from connected user ('192.168.178.70', 47238):  
+2021-01-04 11:42:30,495 - INFO - Close connection user ('192.168.178.70', 47238)

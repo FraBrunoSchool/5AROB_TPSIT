@@ -1,7 +1,8 @@
 import re
 import socket as sck
+import time
 import Classi.Config as conf
-from Classi.AlphaBot import AlphaBot as AlphaBot
+from Classi.AlphaBot import AlphaBot
 from Classi.Log import Log
 
 
@@ -47,7 +48,13 @@ def client():
         comandi = []
         for index, el in enumerate(lista_potenze): comandi.append((lista_direzioni[index], int(el)))
         print(comandi)
-        for el in comandi: istruction(alphabot, el[0], el[1])
+        for el in comandi:
+            log.i(f"{el[0]} di {el[1]}")
+            alphabot.set_pwm_a(el[1])
+            alphabot.set_pwm_b(el[1])
+            istruction(alphabot, el[0])
+            time.sleep(1)
+        alphabot.stop()
 
         msg = input("->")  # again take input
 
@@ -59,14 +66,14 @@ def client():
     c.close()  # close the connection
 
 
-def istruction(alphabot, command, number):
+def istruction(alphabot, command):
     switcher = {
         "F": alphabot.forward,
         "B": alphabot.backward,
         "R": alphabot.right,
         "L": alphabot.left
     }
-    switcher[command](number)
+    switcher[command]()
 
 
 if __name__ == '__main__':

@@ -1,0 +1,7 @@
+guardando da dietro
+    IN1 se HIGH -> ruota dx avanti
+    IN2 se HIGH -> ruota dx indietro
+    IN3 se HIGH -> ruota sx indietro
+    IN4 se HIGH -> ruota SX avanti
+
+min PWM_A e PWM_B -> 25
