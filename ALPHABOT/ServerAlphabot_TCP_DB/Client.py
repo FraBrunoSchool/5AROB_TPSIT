@@ -50,10 +50,8 @@ def client():
         print(comandi)
         for el in comandi:
             log.i(f"{el[0]} di {el[1]}")
-            alphabot.set_pwm_a(el[1])
-            alphabot.set_pwm_b(el[1])
             istruction(alphabot, el[0])
-            time.sleep(1)
+            time.sleep(el[1])
         alphabot.stop()
 
         msg = input("->")  # again take input
