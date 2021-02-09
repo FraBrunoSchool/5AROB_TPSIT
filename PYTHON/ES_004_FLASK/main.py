@@ -19,7 +19,9 @@ def validate(username, password):
     print(lista_iscritti)
     for iscritto in lista_iscritti:
         if username == iscritto[0] and password == iscritto[1]:
+            print(f"Username: {username} - Password: {password} -> FOUND")
             return True
+    print(f"Username: {username} - Password: {password} -> NOT FOUND")
     return False
 
 
@@ -30,17 +32,17 @@ def login():
         username = request.form['username']
         password = request.form['password']
         password = (hashlib.sha256(bytes(f"{password}", "utf-8"))).hexdigest()
-        print(password)
-
         val_ok = validate(username, password)
         if not val_ok:
             error = "Credenziali non valide"
-            print("qui")
+            print(f"Username: {username} - Password: {password} -> Login Fallito")
         else:
-            return redirect(url_for('secret'))
-        print(f"username: {username}, password: {password}")
+            print(f"Username: {username} - Password: {password} -> Login Ok")
+            #return redirect(url_for('secret'))
+            return "Credenziali Giuste"
 
-    return render_template('login.html', error=error)
+    #return render_template('login.html', error=error)
+    return "Credenziali Sbagliate"
 
 
 def insert_user(username, password):
@@ -48,12 +50,16 @@ def insert_user(username, password):
     db_connection = sqlite3.connect('static/DB_Registrazione.db')
     db_cursor = db_connection.cursor()
     db_cursor.execute(f"INSERT INTO Iscritti VALUES ('{username}', '{password}')")
+    for row in db_cursor.execute('SELECT * FROM Iscritti'): print(row)
+    db_cursor.execute("COMMIT;")
+    db_cursor.close()
     return True
 
 
 @app.route('/registrazione', methods=['GET', 'POST'])
 def registrazione():
     error = None
+    print(request)
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -62,13 +68,13 @@ def registrazione():
 
         val_ok = insert_user(username, password)
         if not val_ok:
-            error = "Credenziali non valide"
-            print("qui")
+            error = "Registrazione Falita"
         else:
             return redirect(url_for('secret'))
         print(f"username: {username}, password: {password}")
 
-    return render_template('login.html', error=error)
+    return render_template('registrazione.html', error=error)
+
 
 @app.route('/secret')
 def secret():

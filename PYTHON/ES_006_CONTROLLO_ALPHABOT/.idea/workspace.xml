@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e60ef53f-fc6f-4dfb-8b30-4173108b75b1" name="Default Changelist" comment="" />
+    <list default="true" id="97aa9682-5f3e-4588-956a-72c8985e39ab" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1nHl0RDLuPvRjXAU5ahVEW1GcLQ" />
+  <component name="ProjectId" id="1o6OhThmsSoiwZPvYxKtm2ZZAtQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,19 +44,19 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ES_005_CLIENT_TCP_HTTP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="ES_004_FLASK" />
+      <module name="ES_006_CONTROLLO_ALPHABOT" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\franc\AppData\Local\Microsoft\WindowsApps\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
@@ -72,16 +72,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e60ef53f-fc6f-4dfb-8b30-4173108b75b1" name="Default Changelist" comment="" />
-      <created>1611054677154</created>
+      <changelist id="97aa9682-5f3e-4588-956a-72c8985e39ab" name="Default Changelist" comment="" />
+      <created>1612603692412</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1611054677154</updated>
+      <updated>1612603692412</updated>
     </task>
     <servers />
   </component>
   <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -96,38 +96,33 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="186" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611661305151">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="414" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1611661305151" />
-    <state x="651" y="177" key="FileChooserDialogImpl" timestamp="1612265999862">
+    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612609168638">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="651" y="177" key="FileChooserDialogImpl/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612265999862" />
-    <state x="463" y="126" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1611904789537" />
-    <state width="1899" height="504" key="GridCell.Tab.0.bottom" timestamp="1612268120977">
+    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612609168638" />
+    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1612609349074">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1345" height="335" key="GridCell.Tab.0.bottom/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1612193721166" />
-    <state width="1899" height="504" key="GridCell.Tab.0.bottom/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612268120977" />
-    <state width="1345" height="139" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1611907118332" />
-    <state width="1899" height="504" key="GridCell.Tab.0.center" timestamp="1612268120976">
+    <state x="740" y="295" key="FileChooserDialogImpl/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612609349074" />
+    <state width="1899" height="463" key="GridCell.Tab.0.bottom" timestamp="1612628032464">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1345" height="335" key="GridCell.Tab.0.center/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1612193721165" />
-    <state width="1899" height="504" key="GridCell.Tab.0.center/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612268120976" />
-    <state width="1345" height="139" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1611907118332" />
-    <state width="1899" height="504" key="GridCell.Tab.0.left" timestamp="1612268120976">
+    <state width="1899" height="463" key="GridCell.Tab.0.bottom/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612628032464" />
+    <state width="1345" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1612605266580" />
+    <state width="1899" height="463" key="GridCell.Tab.0.center" timestamp="1612628032464">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1345" height="335" key="GridCell.Tab.0.left/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1612193721165" />
-    <state width="1899" height="504" key="GridCell.Tab.0.left/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612268120976" />
-    <state width="1345" height="139" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1611907118332" />
-    <state width="1899" height="504" key="GridCell.Tab.0.right" timestamp="1612268120977">
+    <state width="1899" height="463" key="GridCell.Tab.0.center/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612628032464" />
+    <state width="1345" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1612605266565" />
+    <state width="1899" height="463" key="GridCell.Tab.0.left" timestamp="1612628032464">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1345" height="335" key="GridCell.Tab.0.right/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1612193721165" />
-    <state width="1899" height="504" key="GridCell.Tab.0.right/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612268120977" />
-    <state width="1345" height="139" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1611907118332" />
+    <state width="1899" height="463" key="GridCell.Tab.0.left/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612628032464" />
+    <state width="1345" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1612605266565" />
+    <state width="1899" height="463" key="GridCell.Tab.0.right" timestamp="1612628032464">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="463" key="GridCell.Tab.0.right/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1612628032464" />
+    <state width="1345" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1612605266580" />
   </component>
 </project>
