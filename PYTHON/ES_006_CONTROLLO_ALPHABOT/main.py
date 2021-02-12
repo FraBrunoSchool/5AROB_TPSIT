@@ -1,5 +1,7 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, request
 from AlphaBot import AlphaBot
+
+
 app = Flask(__name__)
 alphabot = AlphaBot()
 alphabot.stop()
