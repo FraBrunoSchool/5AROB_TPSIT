@@ -22,8 +22,9 @@ def client():
               f"{body}"
 
         c.sendall(msg.encode())
-        data = (c.recv(8192)).decode()
-        while data:
+        # data = (c.recv(8192)).decode()
+        data = " "
+        while data != "":
             print(data)
             data = (c.recv(8192)).decode()
 

@@ -38,11 +38,11 @@ def login():
             print(f"Username: {username} - Password: {password} -> Login Fallito")
         else:
             print(f"Username: {username} - Password: {password} -> Login Ok")
-            #return redirect(url_for('secret'))
-            return "Credenziali Giuste"
+            return redirect(url_for('secret'))
+            #return "Credenziali Giuste"
 
-    #return render_template('login.html', error=error)
-    return "Credenziali Sbagliate"
+    return render_template('login.html', error=error)
+    #return "Credenziali Sbagliate"
 
 
 def insert_user(username, password):
