@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="static/style.css" rel="stylesheet" type= "text/css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<h1 class="text-center">Operazioni semaforo</h1>
+<div class="centro">
+    <p>Per modificare il tempo del semaforo inserire un valore<br>
+        Poi cliccare su quale colore si vuole modificare il tempo<br>
+        Per stoppare o riavviare basta cliccare senza inserire nulla
+    </p>
+    <form action="" method="post">
+        <div class="mb-3">
+            <label for="exampleInputUsername" class="form-label">Valore</label>
+            <input type="number" class="form-control" id="exampleInputUsername" name="valore" value="1">
+        </div>
+        <input class="btn btn-outline-primary" type="submit" name="comando" value="rosso" />
+        <input class="btn btn-outline-primary" type="submit" name="comando" value="verde" />
+        <input class="btn btn-outline-primary" type="submit" name="comando" value="giallo" />
+        <input class="btn btn-outline-primary" type="submit" name="comando" value="spento" />
+        <input class="btn btn-outline-primary" type="submit" name="comando" value="riattiva" />
+    </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
