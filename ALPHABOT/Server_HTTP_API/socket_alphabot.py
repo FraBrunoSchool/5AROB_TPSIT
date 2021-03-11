@@ -1,46 +1,31 @@
-import socket as sck
-import ast
 import re
+import requests
 
 
 # from AlphaBot import AlphaBot
-
-
-# alphabot = AlphaBot()
 
 
 def main():
     while True:
         start = input("Inserisci punto di partenza")
         end = input("Inserisci il punto di arrivo")
+        URL = "http://192.168.0.30:5000/api/v1/resources/path"
+        PARAMS = {'end': end, 'start': start}
+        r = requests.get(url=URL, params=PARAMS)
+        percorso= r.json()
+        percorso = percorso[0]['percorso']
 
-        msg = f"GET http://127.0.0.1:5000/api/v1/resources/path?end={end}&&start={start} HTTP/1.1\r\n" \
-              f"Host: http://127.0.0.1:5000/api/v1/resources/path?end={end}&&start={start}\r\n" \
-              f"Content-Length: 0\r\n" \
-              f"Content-Type: application/x-www-form-urlencoded\r\n" \
-              f"\r\n" \
-              f" "
-        c = sck.socket(sck.AF_INET, sck.SOCK_STREAM)  # instantiate
-        c.connect(('192.168.0.30', 5000))
-        c.sendall(msg.encode())
-        data = " "
-        percorso = None
-        while data != "":
-            if "percorso" in data:
-                percorso = ast.literal_eval(data)
-                break
-            data = (c.recv(8192)).decode()
-        c.close()
-        if percorso[0]['percorso'] not in ("Tra le due località inserite non esiste un percorso", "Località non valide"):
-            comandi = split_istruzioni(percorso[0]['percorso'])
+        if percorso not in ("Tra le due località inserite non esiste un percorso", "Località non valide"):
+            comandi = split_istruzioni(percorso)
             print(comandi)
         else:
-            print(percorso[0]['percorso'])
+            print(percorso)
+
         """for el in comandi:
             print(f"{el[0]} di {el[1]}")
-        istruction(alphabot, el[0])
-        time.sleep(el[1])
-        alphabot.stop()"""
+            istruction(alphabot, el[0])
+            time.sleep(el[1])
+            alphabot.stop()"""
 
 
 def split_istruzioni(percorso):
