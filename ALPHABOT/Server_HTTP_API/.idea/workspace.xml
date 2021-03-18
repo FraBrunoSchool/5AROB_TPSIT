@@ -44,6 +44,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -146,6 +147,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1220" y="282" key="FileChooserDialogImpl" timestamp="1615534907895">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1220" y="282" key="FileChooserDialogImpl/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1615534907895" />
     <state width="936" height="384" key="GridCell.Tab.0.bottom" timestamp="1615293303367">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -162,5 +167,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="936" height="384" key="GridCell.Tab.0.right/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1615293303367" />
+    <state x="461" y="185" key="SettingsEditor" timestamp="1615895216388">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="185" key="SettingsEditor/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1615895216388" />
   </component>
 </project>
