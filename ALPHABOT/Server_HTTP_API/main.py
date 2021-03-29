@@ -14,7 +14,7 @@ end: info3 - start: aula3.0
 
 # http://127.0.0.1:5000/api/v1/resources/path?end=...&&start=...
 @app.route('/api/v1/resources/path', methods=['GET'])
-def api_id():
+def api_path():
     app.logger.info(request.args)
     if 'end' in request.args and 'start' in request.args:
         end = request.args['end']
@@ -67,6 +67,21 @@ def db_query_path(end, start):
         return percorso
     except:
         return [{'percorso': "Tra le due località inserite non esiste un percorso"}]
+
+
+@app.route('/api/v1/reports', methods=['GET'])
+def api_reports():
+    app.logger.info(request.args)
+    if 'date' in request.args and 'pos' in request.args:
+        date = request.args['date']
+        pos = request.args['pos']
+        db_connection = sqlite3.connect('static/percorsi.db')
+        db_cursor = db_connection.cursor()
+        db_cursor.execute(f"INSERT INTO reports_barriers ('data_ora', 'posizione_ostacolo') VALUES ('{date}','{pos}')")
+        db_cursor.execute(f"COMMIT;")
+        db_connection.close()
+        return jsonify("ok")
+    return jsonify("no")
 
 
 if __name__ == '__main__':

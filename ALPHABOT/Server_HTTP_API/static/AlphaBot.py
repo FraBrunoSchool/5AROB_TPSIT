@@ -33,10 +33,10 @@ class AlphaBot(object):
         # IN4 HIGH ruota SX avanti
 
     def forward(self):
-        GPIO.output(self.IN1, GPIO.HIGH)
-        GPIO.output(self.IN2, GPIO.LOW)
-        GPIO.output(self.IN3, GPIO.LOW)
-        GPIO.output(self.IN4, GPIO.HIGH)
+        GPIO.output(self.IN1, GPIO.LOW)
+        GPIO.output(self.IN2, GPIO.HIGH)
+        GPIO.output(self.IN3, GPIO.HIGH)
+        GPIO.output(self.IN4, GPIO.LOW)
 
     def stop(self):
         GPIO.output(self.IN1, GPIO.LOW)
@@ -45,10 +45,10 @@ class AlphaBot(object):
         GPIO.output(self.IN4, GPIO.LOW)
 
     def backward(self):
-        GPIO.output(self.IN1, GPIO.LOW)
-        GPIO.output(self.IN2, GPIO.HIGH)
-        GPIO.output(self.IN3, GPIO.HIGH)
-        GPIO.output(self.IN4, GPIO.LOW)
+        GPIO.output(self.IN1, GPIO.HIGH)
+        GPIO.output(self.IN2, GPIO.LOW)
+        GPIO.output(self.IN3, GPIO.LOW)
+        GPIO.output(self.IN4, GPIO.HIGH)
 
     def left(self):
         GPIO.output(self.IN1, GPIO.HIGH)
