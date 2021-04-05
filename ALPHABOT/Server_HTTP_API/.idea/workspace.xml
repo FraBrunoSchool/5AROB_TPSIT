@@ -47,12 +47,12 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Dati\Desktop\GitHub\5AROB_TPSIT\ALPHABOT\Server_HTTP_API\add_on" />
-      <recent name="D:\Dati\Desktop\GitHub\5AROB_TPSIT\ALPHABOT\Server_HTTP_API\static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Dati\Desktop\GitHub\5AROB_TPSIT\ALPHABOT\Server_HTTP_API" />
+      <recent name="D:\Dati\Desktop\GitHub\5AROB_TPSIT\ALPHABOT\Server_HTTP_API\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Dati\Desktop\GitHub\5AROB_TPSIT\ALPHABOT\Server_HTTP_API\add_on" />
       <recent name="D:\Dati\Desktop\GitHub\5AROB_TPSIT\ALPHABOT\Server_HTTP_API\static" />
     </key>
   </component>
@@ -99,6 +99,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Server_HTTP_API" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="video" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Server_HTTP_API" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,6 +143,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.video" />
         <item itemvalue="Python.socket_alphabot" />
       </list>
@@ -155,25 +177,45 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1220" y="282" key="FileChooserDialogImpl/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1615534907895" />
-    <state width="1899" height="384" key="GridCell.Tab.0.bottom" timestamp="1616502702413">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1345" height="254" key="GridCell.Tab.0.bottom" timestamp="1617103246201">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1345" height="254" key="GridCell.Tab.0.bottom/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1617033781721" />
     <state width="1899" height="384" key="GridCell.Tab.0.bottom/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1616502702413" />
-    <state width="1899" height="384" key="GridCell.Tab.0.center" timestamp="1616502702413">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1345" height="254" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1617103246201" />
+    <state width="1345" height="254" key="GridCell.Tab.0.center" timestamp="1617103246200">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1345" height="254" key="GridCell.Tab.0.center/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1617033781721" />
     <state width="1899" height="384" key="GridCell.Tab.0.center/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1616502702413" />
-    <state width="1899" height="384" key="GridCell.Tab.0.left" timestamp="1616502702413">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1345" height="254" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1617103246200" />
+    <state width="1345" height="254" key="GridCell.Tab.0.left" timestamp="1617103246200">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1345" height="254" key="GridCell.Tab.0.left/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1617033781721" />
     <state width="1899" height="384" key="GridCell.Tab.0.left/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1616502702413" />
-    <state width="1899" height="384" key="GridCell.Tab.0.right" timestamp="1616502702413">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1345" height="254" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1617103246200" />
+    <state width="1345" height="254" key="GridCell.Tab.0.right" timestamp="1617103246201">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1345" height="254" key="GridCell.Tab.0.right/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1617033781721" />
     <state width="1899" height="384" key="GridCell.Tab.0.right/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1616502702413" />
+    <state width="1345" height="254" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1617103246201" />
     <state x="461" y="185" key="SettingsEditor" timestamp="1615895216388">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="185" key="SettingsEditor/-1366.319.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1615895216388" />
+    <state x="632" y="54" width="525" height="754" key="dock-window-1" timestamp="1617033252124">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="632" y="54" width="525" height="754" key="dock-window-1/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1617033252124" />
+    <state x="346" y="0" width="525" height="754" key="dock-window-2" timestamp="1617033252124">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="346" y="0" width="525" height="754" key="dock-window-2/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1617033252124" />
+    <state x="445" y="42" width="525" height="890" maximized="true" key="dock-window-3" timestamp="1617033781786">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="445" y="42" width="525" height="890" maximized="true" key="dock-window-3/-1366.319.1366.768/0.0.1920.1080@-1366.319.1366.768" timestamp="1617033781786" />
   </component>
 </project>

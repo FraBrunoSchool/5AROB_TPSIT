@@ -1,6 +1,7 @@
 import sqlite3
 import flask
 from flask import jsonify, request
+import static.Config as c
 
 app = flask.Flask(__name__)
 
@@ -13,7 +14,7 @@ end: info3 - start: aula3.0
 
 
 # http://127.0.0.1:5000/api/v1/resources/path?end=...&&start=...
-@app.route('/api/v1/resources/path', methods=['GET'])
+@app.route(f'{c.WEB_SERVER_ROUTE_PATH}', methods=['GET'])
 def api_path():
     app.logger.info(request.args)
     if 'end' in request.args and 'start' in request.args:
@@ -24,13 +25,13 @@ def api_path():
             percorso = db_query_path(end, start)
             return jsonify(percorso)
         else:
-            return jsonify([{'percorso': "Località non valide"}])
+            return jsonify([{'percorso': c.MSG_NOT_PLACE}])
 
     return "niente"
 
 
 def db_query_location(end, start):
-    db_connection = sqlite3.connect('static/percorsi.db')
+    db_connection = sqlite3.connect(c.URL_DATABASE)
     db_cursor = db_connection.cursor()
     # carico lista località per controllo
     lista_localita = []
@@ -48,7 +49,7 @@ def db_query_location(end, start):
 
 
 def db_query_path(end, start):
-    db_connection = sqlite3.connect('static/percorsi.db')
+    db_connection = sqlite3.connect(c.URL_DATABASE)
     db_cursor = db_connection.cursor()
     try:
         app.logger.info(
@@ -66,16 +67,16 @@ def db_query_path(end, start):
         db_connection.close()
         return percorso
     except:
-        return [{'percorso': "Tra le due località inserite non esiste un percorso"}]
+        return [{'percorso': c.MSG_NOT_PATH}]
 
 
-@app.route('/api/v1/reports', methods=['GET'])
+@app.route(f'{c.WEB_SERVER_ROUTE_REPORTS}', methods=['GET'])
 def api_reports():
     app.logger.info(request.args)
     if 'date' in request.args and 'pos' in request.args:
         date = request.args['date']
         pos = request.args['pos']
-        db_connection = sqlite3.connect('static/percorsi.db')
+        db_connection = sqlite3.connect(c.URL_DATABASE)
         db_cursor = db_connection.cursor()
         db_cursor.execute(f"INSERT INTO reports_barriers ('data_ora', 'posizione_ostacolo') VALUES ('{date}','{pos}')")
         db_cursor.execute(f"COMMIT;")
@@ -85,4 +86,4 @@ def api_reports():
 
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.30', debug='on')
+    app.run(host=c.WEB_SERVER_IP, debug='on')

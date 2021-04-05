@@ -1,25 +1,32 @@
 import re
 import threading
 from datetime import datetime
-
+import static.Config as c
 import requests
 import RPi.GPIO as GPIO
 import time
-
-
 from static.AlphaBot import AlphaBot
+
 alphabot = AlphaBot()
 alphabot.stop()
+COMANDO_SENSORI = c.STATO_RISORSA_STOP
+
 
 def main():
     esec_path = threading.Thread(target=esecuzione_percorso)
     ril_ost = threading.Thread(target=rilevazione_ostacoli)
+    """mutex_path = threading.Lock()
+    mutex_ost = threading.Lock()
+    mutex_ost.acquire()"""
     esec_path.start()
     ril_ost.start()
     esec_path.join()
     esec_path.join()
+    alphabot.stop()
+
 
 def rilevazione_ostacoli():
+    global COMANDO_SENSORI
     DR = 16
     DL = 19
 
@@ -28,45 +35,51 @@ def rilevazione_ostacoli():
     GPIO.setup(DR, GPIO.IN, GPIO.PUD_UP)
     GPIO.setup(DL, GPIO.IN, GPIO.PUD_UP)
 
-    stato_prec = "stop"
+    stato_prec = c.STATO_INIZIALE
     while True:
-        #print(stato_prec)
+        # print(stato_prec)
         DR_status = GPIO.input(DR)
         DL_status = GPIO.input(DL)
-        #print(f"DR_status: {DR_status} - DL_status: {DL_status}")
-        if DL_status == 1 and DR_status == 1 and stato_prec != "libero":
+        # print(f"DR_status: {DR_status} - DL_status: {DL_status}")
+        if DL_status == 1 and DR_status == 1 and stato_prec != c.STATO_LIBERO:
             # tutto libero
-            stato_prec = "libero"
-            #print("Cambio: Davanti libero")
+            stato_prec = c.STATO_LIBERO
+            COMANDO_SENSORI = c.STATO_RISORSA_AVANTI
+            # print("Cambio: Davanti libero")
             invio_reports(stato_prec)
-        if DL_status == 0 and DR_status == 0 and stato_prec != "occupato":
+        if DL_status == 0 and DR_status == 0 and stato_prec != c.STATO_OCCUPATO:
             # ostacolo davanti
-            stato_prec = "occupato"
-            #print("Cambio: Davanti occupato")
+            stato_prec = c.STATO_OCCUPATO
+            COMANDO_SENSORI = c.STATO_RISORSA_VAI_DX
+            # print("Cambio: Davanti occupato")
             invio_reports(stato_prec)
-        if DL_status == 1 and DR_status == 0 and stato_prec != "sx_libero":
+        if DL_status == 1 and DR_status == 0 and stato_prec != c.STATO_LIBERO_SX:
             # ostacolo davanti
-            stato_prec = "sx_libero"
-            #print("Cambio: sx_libero")
+            stato_prec = c.STATO_LIBERO_SX
+            COMANDO_SENSORI = c.STATO_RISORSA_VAI_SX
+            # print("Cambio: sx_libero")
             invio_reports(stato_prec)
-        if DL_status == 0 and DR_status == 1 and stato_prec != "dx_libero":
+        if DL_status == 0 and DR_status == 1 and stato_prec != c.STATO_LIBERO_DX:
             # ostacolo davanti
-            stato_prec = "dx_libero"
-            #print("Cambio: dx_libero")
+            stato_prec = c.STATO_LIBERO_DX
+            COMANDO_SENSORI = c.STATO_RISORSA_VAI_DX
+            # print("Cambio: dx_libero")
             invio_reports(stato_prec)
         time.sleep(1)
 
 
 def invio_reports(stato):
-    URL = "http://192.168.0.30:5000/api/v1/reports"
+    URL = f"http://{c.WEB_SERVER_IP}:{c.WEB_SERVER_PORT}{c.WEB_SERVER_ROUTE_REPORTS}"
     PARAMS = {'date': f'{datetime.now()}', 'pos': f'{stato}'}
     r = requests.get(url=URL, params=PARAMS)
 
+
 def esecuzione_percorso():
+    global COMANDO_SENSORI
     while True:
         start = input("Inserisci punto di partenza")
         end = input("Inserisci il punto di arrivo")
-        URL = "http://192.168.0.30:5000/api/v1/resources/path"
+        URL = f"http://{c.WEB_SERVER_IP}:{c.WEB_SERVER_PORT}{c.WEB_SERVER_ROUTE_PATH}"
         PARAMS = {'end': end, 'start': start}
         r = requests.get(url=URL, params=PARAMS)
         percorso = r.json()
@@ -75,14 +88,20 @@ def esecuzione_percorso():
         if percorso not in ("Tra le due località inserite non esiste un percorso", "Località non valide"):
             comandi = split_istruzioni(percorso)
             print(comandi)
+            for el in comandi:
+                print(f"{el[0]} di {el[1]}")
+                for t in range(el[1]):
+                    istruction(alphabot, el[0])
+                    time.sleep(1)
+                    if COMANDO_SENSORI == c.STATO_RISORSA_VAI_DX:
+                        istruction(alphabot, "R")
+                        time.sleep(1)
+                    elif COMANDO_SENSORI == c.STATO_RISORSA_VAI_SX:
+                        istruction(alphabot, "L")
+                        time.sleep(1)
+                alphabot.stop()
         else:
             print(percorso)
-
-        for el in comandi:
-            print(f"{el[0]} di {el[1]}")
-            istruction(alphabot, el[0])
-            time.sleep(el[1])
-            alphabot.stop()
 
 
 def split_istruzioni(percorso):
