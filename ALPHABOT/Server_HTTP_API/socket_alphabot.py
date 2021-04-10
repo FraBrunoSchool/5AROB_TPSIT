@@ -1,28 +1,47 @@
 import re
 import threading
 from datetime import datetime
+
+import cv2
+
 import static.Config as c
 import requests
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import time
-from static.AlphaBot import AlphaBot
+#from static.AlphaBot import AlphaBot
 
-alphabot = AlphaBot()
-alphabot.stop()
+#alphabot = AlphaBot()
+#alphabot.stop()
 COMANDO_SENSORI = c.STATO_RISORSA_STOP
 
 
 def main():
-    esec_path = threading.Thread(target=esecuzione_percorso)
-    ril_ost = threading.Thread(target=rilevazione_ostacoli)
+    # esec_path = threading.Thread(target=esecuzione_percorso)
+    # ril_ost = threading.Thread(target=rilevazione_ostacoli)
+    video = threading.Thread(target=stream_video)
     """mutex_path = threading.Lock()
     mutex_ost = threading.Lock()
     mutex_ost.acquire()"""
-    esec_path.start()
-    ril_ost.start()
-    esec_path.join()
-    esec_path.join()
-    alphabot.stop()
+    # esec_path.start()
+    # ril_ost.start()
+    video.start()
+    # esec_path.join()
+    # esec_path.join()
+    video.join()
+    #alphabot.stop()
+
+
+def stream_video():
+    cap = cv2.VideoCapture(0)
+    while True:
+        ret, frame = cap.read()
+        print(frame)
+        #cv2.imshow('img', frame)
+        print(frame.shape)
+        URL = f"http://{c.WEB_SERVER_IP}:{c.WEB_SERVER_PORT}{c.WEB_SERVER_ROUTE_VIDEO}"
+        PARAMS = {'frame': frame}
+        r = requests.get(url=URL, params=PARAMS)
+
 
 
 def rilevazione_ostacoli():

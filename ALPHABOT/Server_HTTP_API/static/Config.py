@@ -1,7 +1,8 @@
-WEB_SERVER_IP = '192.168.88.40'
+WEB_SERVER_IP = '192.168.0.31'
 WEB_SERVER_PORT = 5000
 WEB_SERVER_ROUTE_PATH = '/api/v1/resources/path'
 WEB_SERVER_ROUTE_REPORTS = '/api/v1/reports'
+WEB_SERVER_ROUTE_VIDEO = '/api/v1/video'
 STATO_INIZIALE = 'stop'
 STATO_LIBERO = 'libero'
 STATO_OCCUPATO = 'occupato'

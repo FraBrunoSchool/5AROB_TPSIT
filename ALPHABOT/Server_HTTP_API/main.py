@@ -1,6 +1,11 @@
 import sqlite3
+
+import cv2
 import flask
+import numpy as np
 from flask import jsonify, request
+from werkzeug.utils import secure_filename
+
 import static.Config as c
 
 app = flask.Flask(__name__)
@@ -83,6 +88,24 @@ def api_reports():
         db_connection.close()
         return jsonify("ok")
     return jsonify("no")
+
+
+@app.route(f'{c.WEB_SERVER_ROUTE_VIDEO}', methods=['GET'])
+def api_video():
+    print("video")
+    # app.logger.info(request.args)
+    if 'frame' in request.args:
+        frame = request.args['frame']
+        # print(frame)
+        frame = np.fromstring(frame).reshape(480, 640, 3)
+        # print(frame)
+        """im_array = np.fromstring(frame, dtype=np.uint16)
+        im = cv2.imdecode(im_array, cv2.IMREAD_GRAYSCALE)
+        print(im)"""
+        cv2.imshow('img', frame)
+
+    # frame = np.fromstring(frame, dtype=int, sep=' ')
+    # cv2.imshow('frame', frame)"""
 
 
 if __name__ == '__main__':
